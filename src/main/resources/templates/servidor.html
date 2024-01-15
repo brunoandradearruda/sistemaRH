@@ -6,17 +6,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#CPF').mask('000.000.000-00', {reverse: true});
             $('#CEP').mask('00000-000', {reverse: true});
+            $('#PisPasep').mask('000.00000.00-0', {reverse: true});
+            $('#matricula').mask('000.000-0', {reverse: true});
+            // Adiciona um ouvinte de evento ao formulário
+            $('form').submit(function() {
+                // Exibe o alerta após o envio do formulário
+                alert('Cadastro realizado com sucesso!');
+            });
         });
     </script>
+
+
 
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-center" id="navbarNav">
@@ -45,64 +55,97 @@
     <form action="#" th:action="@{/servidor}" method="post" class="mt-4">
         <!-- Outros campos... -->
 
-        <div class="form-group">
-            <label for="CEP">CEP:</label>
-            <input type="text" id="CEP" name="CEP" placeholder="Insira o CEP do servidor" class="form-control" onblur="pesquisacep(this.value);" />
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" placeholder="Insira a matrícula" class="form-control" required/>
+            </div>
+
+            <div class="form-group col-md-10">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Insira o nome do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Insira o nome do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="sexo">Sexo:</label>
-            <input type="text" id="sexo" name="sexo" placeholder="Insira o sexo do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="CPF">CPF:</label>
-            <input type="text" id="CPF" name="CPF" placeholder="Insira o CPF do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="sexo">Sexo:</label>
+                <input type="text" id="sexo" name="sexo" placeholder="Insira o sexo do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="CPF">CPF:</label>
+                <input type="text" id="CPF" name="CPF" placeholder="Insira o CPF do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="identidade">Identidade:</label>
+                <input type="text" id="identidade" name="identidade" placeholder="Insira a identidade do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="orgaoExpeditor">Órgão Expeditor:</label>
+                <input type="text" id="orgaoExpeditor" name="orgaoExpeditor" placeholder="Insira o órgão expeditor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" placeholder="(__) _____-____" class="form-control"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" class="form-control"/>
+            </div>
         </div>
 
 
 
-        <div class="form-group">
-            <label for="identidade">Identidade:</label>
-            <input type="text" id="identidade" name="identidade" placeholder="Insira a identidade do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="CEP">CEP:</label>
+                <input type="text" id="CEP" name="CEP" placeholder="Insira o CEP do servidor" class="form-control" onblur="pesquisacep(this.value);"/>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Insira o endereço do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Insira o bairro do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Insira a cidade do servidor" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" placeholder="UF" class="form-control" onblur="converterParaMaiusculas(this)"/>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="orgaoExpeditor">Órgão Expeditor:</label>
-            <input type="text" id="orgaoExpeditor" name="orgaoExpeditor" placeholder="Insira o órgão expeditor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input type="date" id="dataNascimento" name="dataNascimento" class="form-control" />
-        </div>
+
+
+
+
+
+
+
         <div class="form-group">
             <label for="PisPasep">PIS/PASEP:</label>
-            <input type="text" id="PisPasep" name="PisPasep" placeholder="Insira o PIS/PASEP do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
+            <input type="text" id="PisPasep" name="PisPasep" placeholder="Insira o PIS/PASEP do servidor"
+                   class="form-control" onblur="converterParaMaiusculas(this)"/>
         </div>
 
-        <div class="form-group">
-            <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco" placeholder="Insira o endereço do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" placeholder="Insira o bairro do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" placeholder="Insira a cidade do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
-        <div class="form-group">
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" placeholder="Insira o estado do servidor" class="form-control" onblur="converterParaMaiusculas(this)" />
-        </div>
 
-        <div class="form-group">
-            <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" placeholder="(__) _____-____" class="form-control" />
-        </div>
+
+
+
+
+
 
         <!-- Outros campos... -->
 
