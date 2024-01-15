@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Setor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<!-- ... código anterior ... -->
+
+<!-- Adicione este bloco de código após o formulário de cadastro de servidor -->
+<div class="container mt-5">
+    <h2>Cadastro de Setor</h2>
+    <form action="#" th:action="@{/setor}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="nomeSetor">Nome do Setor:</label>
+            <input type="text" id="nomeSetor" name="nomeSetor" placeholder="Insira o nome do setor" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar Setor</button>
+    </form>
+</div>
+
+<!-- ... código posterior ... -->
+</body>
+</html>

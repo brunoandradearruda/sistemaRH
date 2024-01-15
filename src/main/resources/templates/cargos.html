@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Cargos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Página Inicial</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Férias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Departamento</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Funcionário</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cargo">Cargos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1 class="mt-5">Cadastro de Cargos</h1>
+    <form action="#" th:action="@{/cargo}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="nome">Nome do Cargo (Somente Letras Maiúsculas):</label>
+            <input type="text" id="nome" name="nome" placeholder="Insira o nome do cargo" class="form-control" oninput="this.value = this.value.toUpperCase()" required>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar Cargo</button>
+    </form>
+
+    <!-- Add a table to display the cargo data -->
+    <table class="table table-striped mt-4">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th> <!-- New column for actions -->
+            <!-- Add more columns here -->
+            <!-- ... -->
+            <!-- End of columns -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cargo : ${cargos}">
+            <td th:text="${cargo.nome}"></td>
+            <td>
+                <!-- Edit button -->
+                <a th:href="@{'/cargo/editar/' + ${cargo.id}}" class="btn btn-sm btn-warning">Editar</a>
+                <!-- Delete button with confirmation -->
+                <a th:href="@{'/cargo/excluir/' + ${cargo.id}}"
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Tem certeza que deseja excluir este cargo?')">Excluir</a>
+            </td>
+            <!-- Add more cells here -->
+            <!-- ... -->
+            <!-- End of cells -->
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
