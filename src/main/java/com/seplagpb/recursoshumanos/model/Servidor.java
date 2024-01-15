@@ -29,13 +29,15 @@ public class Servidor {
     private String celular;
     private String matricula;
     private String dataAdmissão;
-//    private String cargo;
+    private String cargo;
     private String simbolo;
     private String funcao;
     private String setor;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_id")
-    private Cargo cargo;
-
+//    @ManyToOne
+//    @JoinColumn(name = "cargo_id")
+//    private Cargo cargo;
+//    public String getNome() {
+//        return nome;
+//    }
 }
