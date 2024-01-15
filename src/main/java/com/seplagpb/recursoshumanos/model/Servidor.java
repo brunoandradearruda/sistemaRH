@@ -34,10 +34,9 @@ public class Servidor {
     private String funcao;
     private String setor;
 
-//    @ManyToOne
-//    @JoinColumn(name = "cargo_id")
-//    private Cargo cargo;
-//    public String getNome() {
-//        return nome;
-//    }
-}
+
+    }
+
+
+
+

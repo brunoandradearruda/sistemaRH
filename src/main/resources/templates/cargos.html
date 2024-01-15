@@ -3,6 +3,18 @@
 <head>
     <title>Cadastro de Cargos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#simbolo').mask('000-0', {reverse: true});
+            // Adiciona um ouvinte de evento ao formulário
+            $('form').submit(function() {
+                // Exibe o alerta após o envio do formulário
+                alert('Cadastro realizado com sucesso!');
+            });
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,11 +47,22 @@
 <div class="container">
     <h1 class="mt-5">Cadastro de Cargos</h1>
     <form action="#" th:action="@{/cargo}" method="post" class="mt-4">
-        <div class="form-group">
-            <label for="nome">Nome do Cargo (Somente Letras Maiúsculas):</label>
-            <input type="text" id="nome" name="nome" placeholder="Insira o nome do cargo" class="form-control" oninput="this.value = this.value.toUpperCase()" required>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="nome">Nome do Cargo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Insira o nome do cargo" class="form-control" oninput="this.value = this.value.toUpperCase()" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="simbolo">Símbolo do Cargo:</label>
+                <input type="text" id="simbolo" name="simbolo" placeholder="Insira o simbolo do cargo" class="form-control" oninput="this.value = this.value.toUpperCase()" required>
+            </div>
+            <div class="form-group col-md-2 align-self-end">
+                <button type="submit" class="btn btn-primary">Cadastrar Cargo</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-success">Cadastrar Cargo</button>
+
+
+
     </form>
 
     <!-- Add a table to display the cargo data -->
@@ -47,7 +70,8 @@
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Ações</th> <!-- New column for actions -->
+            <th>Símbolo</th>
+            <th>Ações</th><!-- New column for actions -->
             <!-- Add more columns here -->
             <!-- ... -->
             <!-- End of columns -->
@@ -56,6 +80,7 @@
         <tbody>
         <tr th:each="cargo : ${cargos}">
             <td th:text="${cargo.nome}"></td>
+            <td th:text="${cargo.simbolo}"></td>
             <td>
                 <!-- Edit button -->
                 <a th:href="@{'/cargo/editar/' + ${cargo.id}}" class="btn btn-sm btn-warning">Editar</a>

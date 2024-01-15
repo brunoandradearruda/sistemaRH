@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,15 +18,36 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Férias</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Departamento</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Setor
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/setor">Consultar</a>
+          <a class="dropdown-item" href="/cadastrar-departamento">Cadastrar</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/servidor">Servidores</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Servidores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Consultar</a>
+          <a class="dropdown-item" href="/servidor">Cadastrar</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/cargo">Cargos</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cargos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Consultar</a>
+          <a class="dropdown-item" href="/cargo">Cadastrar</a>
+        </div>
       </li>
+
     </ul>
   </div>
 </nav>

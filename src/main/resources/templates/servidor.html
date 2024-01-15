@@ -76,8 +76,20 @@
 
         <div class="row">
             <div class="form-group col-md-2">
-                <label for="sexo">Sexo:</label>
-                <input type="text" id="sexo" name="sexo" placeholder="Insira o sexo do servidor" class="form-control" onblur="converterParaMaiusculas(this)"required/>
+                <label for="sexo">Gênero:</label>
+                <select id="sexo" name="sexo" class="form-control" onblur="converterParaMaiusculas(this)" required>
+                    <option value="">Gênero</option>
+                    <option value="CISGÊNERO">CISGÊNERO</option>
+                    <option value="TRANSGÊNERO">TRANSGÊNERO</option>
+                    <option value="NÃO-BINÁRIO">NÃO-BINÁRIO</option>
+                    <option value="GÊNERO-FLUIDO">GÊNERO-FLUIDO</option>
+                    <option value="AGÊNERO">AGÊNERO</option>
+                    <option value="BIGÊNERO">BIGÊNERO</option>
+                    <option value="DEMIBOY/DEMIGIRL">DEMIBOY/DEMIGIRL</option>
+                    <option value="NEUTROIS">NEUTROIS</option>
+                    <option value="ANDRÓGINO">ANDRÓGINO</option>
+                    <option value="TWO-SPIRIT">TWO-SPIRIT</option>
+                </select>
             </div>
 
             <div class="form-group col-md-2">
@@ -145,8 +157,11 @@
 
             <div class="form-group col-md-2">
                 <label for="cargo">Cargo:</label>
-                <input type="text" id="cargo" name="cargo" placeholder="Insira o cargo do servidor" class="form-control"/>
+                <select id="cargo" name="cargo" class="form-control">
+                    <option th:each="cargo : ${cargos}" th:value="${cargo.id}" th:text="${cargo.nome}"></option>
+                </select>
             </div>
+
 
             <div class="form-group col-md-2">
                 <label for="simbolo">Símbolo:</label>
