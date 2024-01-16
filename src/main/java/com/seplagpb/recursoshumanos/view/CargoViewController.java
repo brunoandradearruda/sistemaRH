@@ -18,4 +18,12 @@ public class CargoViewController {
         model.addAttribute("cargos", cargoRepository.findAll());
         return "cargos";
     }
+
+    @GetMapping("/cargoslista")
+    public String listarCargo(Model model) {
+        model.addAttribute("cargo", new Cargo());
+        model.addAttribute("cargos", cargoRepository.findAll());
+        return "cargoListar";
+
+    }
 }

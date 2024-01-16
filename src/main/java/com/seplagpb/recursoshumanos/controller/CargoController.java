@@ -1,4 +1,5 @@
 package com.seplagpb.recursoshumanos.controller;
+
 import com.seplagpb.recursoshumanos.model.Cargo;
 import com.seplagpb.recursoshumanos.repository.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +54,12 @@ public class CargoController {
         }
     }
 
-    @GetMapping("/buscar")
-    public String buscarCargo(@RequestParam Long id, Model model) {
-        Cargo cargo = cargoRepository.findById(id).orElse(null);
-        model.addAttribute("cargo", cargo);
-        return "buscar_cargo";
-    }
+//    @GetMapping("/buscar")
+//    public String buscarCargo(@RequestParam Long id, Model model) {
+//        Cargo cargo = cargoRepository.findById(id).orElse(null);
+//        model.addAttribute("cargo", cargo);
+//        return "buscar_cargo";
+//    }
 
     @GetMapping("/excluir/{id}")
     public String excluirCargo(@PathVariable Long id) {
@@ -66,6 +67,21 @@ public class CargoController {
             cargoRepository.deleteById(id);
         }
         return "redirect:/cargo";
+    }
+
+
+    @GetMapping("/cargos/{id}")
+    public String detalhesCargo(@PathVariable Long id, Model model) {
+        Cargo cargo = cargoRepository.findById(id).orElse(null);
+
+        if (cargo != null) {
+            model.addAttribute("cargo", cargo);
+            return "cargobusca";
+        } else {
+            // Lide com a situação em que o cargo não foi encontrado
+            return "redirect:/cargos";
+        }
+
     }
 
 }
