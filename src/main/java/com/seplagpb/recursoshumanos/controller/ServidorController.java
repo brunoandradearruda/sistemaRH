@@ -1,14 +1,16 @@
 package com.seplagpb.recursoshumanos.controller;
+
 import com.seplagpb.recursoshumanos.model.Servidor;
-import com.seplagpb.recursoshumanos.model.Setor;
 import com.seplagpb.recursoshumanos.repository.ServidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import java.util.Optional;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 
 @Controller
@@ -73,6 +75,43 @@ public class ServidorController {
         } else {
             throw new RuntimeException("Servidor não encontrado");
         }
+
+
     }
+//    @GetMapping("/servidorlista")
+//    public String listarServidor(Model model) {
+//        List<Servidor> servidores = servidorRepository.findAll();
+//        Map<Servidor, LocalDate> servidorFeriasMap = new HashMap<>();
+//        for (Servidor servidor : servidores) {
+//            LocalDate proximasFerias = calcularProximasFerias(servidor);
+//            if (proximasFerias != null) {
+//                servidorFeriasMap.put(servidor, proximasFerias);
+//            }
+//        }
+//        model.addAttribute("servidor", new Servidor());
+//        model.addAttribute("servidorlista", servidorFeriasMap.keySet());
+//        model.addAttribute("feriasMap", servidorFeriasMap);
+//        return "servidorListar";
+//    }
+
+//    private LocalDate calcularProximasFerias(Servidor servidor) {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        LocalDate dataAdmissao = LocalDate.parse(servidor.getDataAdmissao(), formatter);
+//        LocalDate dataAtual = LocalDate.now();
+//        long mesesTrabalhados = ChronoUnit.MONTHS.between(dataAdmissao, dataAtual);
+//
+//        if (mesesTrabalhados < 12) {
+//            return null; // Ainda não tem direito a férias
+//        } else if (mesesTrabalhados == 12) {
+//            return dataAdmissao.plusYears(1); // Primeiras férias após 1 ano
+//        } else {
+//            long periodosDeOnzeMeses = (mesesTrabalhados - 12) / 11;
+//            LocalDate proximasFerias = dataAdmissao.plusYears(1).plusMonths(11 * periodosDeOnzeMeses);
+//            return proximasFerias.isBefore(dataAtual) || proximasFerias.isEqual(dataAtual) ? proximasFerias : null;
+//        }
+//    }
+
+
+
 
 }

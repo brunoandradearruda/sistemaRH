@@ -11,6 +11,7 @@
             $('#CEP').mask('00000-000', {reverse: true});
             $('#PisPasep').mask('000.00000.00-0', {reverse: true});
             $('#matricula').mask('000.000-0', {reverse: true});
+            $('#celular').mask('(00) 00000-0000');
             // Adiciona um ouvinte de evento ao formulário
             $('form').submit(function() {
                 // Exibe o alerta após o envio do formulário
@@ -18,7 +19,6 @@
             });
         });
     </script>
-
 
 </head>
 <body>
@@ -127,8 +127,8 @@
             </div>
 
             <div class="form-group col-md-2">
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone" placeholder="(__) _____-____" class="form-control"required/>
+                <label for="celular">Celular:</label>
+                <input type="text" id="celular" name="celular" placeholder="(__) _____-____" class="form-control"required/>
             </div>
 
             <div class="form-group col-md-2">
@@ -174,11 +174,12 @@
                 <input type="date" id="dataAdmissão" name="dataAdmissão" class="form-control"/>
             </div>
 
-            <div class="form-group col-md-2">
-                <label for="cargo">Cargo:</label>
-                <select id="cargo" name="cargo" class="form-control">
-                    <option th:each="cargo : ${cargos}" th:value="${cargo.id}" th:text="${cargo.nome}"></option>
-                </select>
+
+
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="cargo">cargo:</label>
+                    <input type="text" id="cargo" name="cargo" class="form-control"/>
             </div>
 
 
@@ -198,26 +199,15 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-        <!-- Outros campos... -->
-
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
+            <div class="form-group col-md-4">
+            <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
+            <!-- Alterado o tipo para "reset" para limpar os campos -->
+            <button type="reset" class="btn btn-secondary mt-4 ml-2">Limpar Campos</button>
+        </div>
 </div>
+    </form>
 
 <script>
-    $(document).ready(function () {
-        // Máscara para telefone
-        $('#telefone').mask('(00) 00000-0000');
-    });
 
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.

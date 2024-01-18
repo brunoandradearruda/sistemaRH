@@ -16,7 +16,7 @@
         <a class="nav-link" href="/home">Página Inicial</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Férias</a>
+        <a class="nav-link" href="/servidor/feriaspendentes">Férias</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,6 +60,13 @@
     <p></p>
   </div>
 </div>
+
+<tr th:each="servidor : ${servidorlista}">
+  <td th:text="${servidor.nome}"></td>
+  <td th:text="${servidor.dataAdmissao}"></td>
+  <td th:text="${servidor.dataProximasFerias}"></td>
+</tr>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
