@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Servidores Elegíveis para Férias</title>
+    <!-- Inclusão do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Servidores Elegíveis para Férias</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Admissão</th>
+            <!-- Adicione mais colunas conforme necessário -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre a lista de servidores elegíveis para férias -->
+        <tr th:each="servidor : ${servidoresElegiveis}">
+            <td th:text="${servidor.nome}">Nome do Servidor</td>
+            <td th:text="${servidor.dataAdmissao}">Data de Admissão</td>
+            <!-- Adicione mais campos conforme necessário -->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
