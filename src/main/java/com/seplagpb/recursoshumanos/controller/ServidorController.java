@@ -20,12 +20,6 @@ public class ServidorController {
     @Autowired
     private ServidorRepository servidorRepository;
 
-//    //Create
-//    @PostMapping
-//    public Servidor gravar(@RequestBody Servidor servidor) {
-//        return servidorRepository.save(servidor);
-//    }
-
 
     @PostMapping
     public String adicionarServidor(@ModelAttribute Servidor servidor) {
@@ -78,40 +72,4 @@ public class ServidorController {
 
 
     }
-//    @GetMapping("/servidorlista")
-//    public String listarServidor(Model model) {
-//        List<Servidor> servidores = servidorRepository.findAll();
-//        Map<Servidor, LocalDate> servidorFeriasMap = new HashMap<>();
-//        for (Servidor servidor : servidores) {
-//            LocalDate proximasFerias = calcularProximasFerias(servidor);
-//            if (proximasFerias != null) {
-//                servidorFeriasMap.put(servidor, proximasFerias);
-//            }
-//        }
-//        model.addAttribute("servidor", new Servidor());
-//        model.addAttribute("servidorlista", servidorFeriasMap.keySet());
-//        model.addAttribute("feriasMap", servidorFeriasMap);
-//        return "servidorListar";
-//    }
-
-//    private LocalDate calcularProximasFerias(Servidor servidor) {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        LocalDate dataAdmissao = LocalDate.parse(servidor.getDataAdmissao(), formatter);
-//        LocalDate dataAtual = LocalDate.now();
-//        long mesesTrabalhados = ChronoUnit.MONTHS.between(dataAdmissao, dataAtual);
-//
-//        if (mesesTrabalhados < 12) {
-//            return null; // Ainda não tem direito a férias
-//        } else if (mesesTrabalhados == 12) {
-//            return dataAdmissao.plusYears(1); // Primeiras férias após 1 ano
-//        } else {
-//            long periodosDeOnzeMeses = (mesesTrabalhados - 12) / 11;
-//            LocalDate proximasFerias = dataAdmissao.plusYears(1).plusMonths(11 * periodosDeOnzeMeses);
-//            return proximasFerias.isBefore(dataAtual) || proximasFerias.isEqual(dataAtual) ? proximasFerias : null;
-//        }
-//    }
-
-
-
-
 }

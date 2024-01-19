@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class CargoViewController {
 
@@ -21,9 +23,11 @@ public class CargoViewController {
 
     @GetMapping("/cargoslista")
     public String listarCargo(Model model) {
+        List<Cargo> cargos = cargoRepository.findAll();
         model.addAttribute("cargo", new Cargo());
-        model.addAttribute("cargos", cargoRepository.findAll());
+        model.addAttribute("cargos", cargos);
         return "cargoListar";
-
     }
+
+
 }

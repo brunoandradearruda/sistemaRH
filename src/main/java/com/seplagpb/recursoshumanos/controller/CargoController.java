@@ -36,6 +36,8 @@ public class CargoController {
     }
 
 
+
+
     @GetMapping("/editar/{id}")
     public String editarCargo(@PathVariable Long id, Model model) {
         Cargo cargo = cargoRepository.findById(id).orElse(new Cargo());
@@ -54,12 +56,6 @@ public class CargoController {
         }
     }
 
-//    @GetMapping("/buscar")
-//    public String buscarCargo(@RequestParam Long id, Model model) {
-//        Cargo cargo = cargoRepository.findById(id).orElse(null);
-//        model.addAttribute("cargo", cargo);
-//        return "buscar_cargo";
-//    }
 
     @GetMapping("/excluir/{id}")
     public String excluirCargo(@PathVariable Long id) {
@@ -81,6 +77,7 @@ public class CargoController {
             // Lide com a situação em que o cargo não foi encontrado
             return "redirect:/cargos";
         }
+
 
     }
 

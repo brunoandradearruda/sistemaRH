@@ -1,4 +1,5 @@
 package com.seplagpb.recursoshumanos.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,14 +35,11 @@ public class Servidor {
     private String email;
     private String celular;
     private String matricula;
-//    private LocalDate dataAdmissao; // Mantenha apenas este campo
+    //    private LocalDate dataAdmissao; // Mantenha apenas este campo
     private String cargo;
     private String simbolo;
     private String funcao;
     private String setor;
-
-
-
 
 
     public LocalDate calcularProximasFerias() {
@@ -59,10 +57,12 @@ public class Servidor {
     }
 
     public LocalDate getDataProximasFerias() {
+
         return dataProximasFerias;
     }
 
     public void setDataProximasFerias(LocalDate dataProximasFerias) {
+
         this.dataProximasFerias = dataProximasFerias;
     }
 }
