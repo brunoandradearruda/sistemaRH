@@ -79,17 +79,18 @@ public class ServidorController {
         for (Servidor servidor : todosServidores) {
             if (servidor.getDataAdmissao() != null) {
                 long mesesTrabalhados = Period.between(servidor.getDataAdmissao(), hoje).toTotalMonths();
+                long mesesAposPrimeiroAno = mesesTrabalhados - 12;
 
-                if ((mesesTrabalhados >= 12 && (mesesTrabalhados - 12) % 11 == 0) || mesesTrabalhados == 12) {
+                if (mesesTrabalhados >= 12 && (mesesAposPrimeiroAno % 11 == 0 || mesesAposPrimeiroAno == 0)) {
                     elegiveisParaFerias.add(servidor);
                 }
-
             }
         }
 
         model.addAttribute("servidoresElegiveis", elegiveisParaFerias);
-        return "elegiveis-ferias"; // Nome do arquivo Thymeleaf
+        return "elegiveis-ferias";
     }
+
 
 
 }
