@@ -39,7 +39,6 @@ public class Servidor {
     private String matricula;
     private String cargo;
     private String simbolo;
-    private String funcao;
     private String setor;
 
 

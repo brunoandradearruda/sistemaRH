@@ -18,12 +18,33 @@ public class Cargo {
     private Long id;
     private String nome;
     private String simbolo;
+    private String setor;
+
+    public String getSimbolo() {
+        return simbolo;
+    }
+
+    public void setSimbolo(String simbolo) {
+        this.simbolo = simbolo;
+    }
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
 
     public String getNome() {
+
         return nome;
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
+
+
 }

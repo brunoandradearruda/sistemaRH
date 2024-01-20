@@ -99,4 +99,13 @@ public class ServidorController {
     }
 
 
+//    @GetMapping("/servidorCadastro")
+//    public String prepararFormularioServidor(Model model) {
+//        List<Cargo> cargos = cargoRepository.findAll();
+//        model.addAttribute("cargos", cargos); // Lista para o combobox
+//        // Aqui você pode adicionar outras informações necessárias para a página
+//        return "servidor"; // Nome da view que contém o formulário de servidor
+//    }
+
+
 }

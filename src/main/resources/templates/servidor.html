@@ -51,7 +51,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/servidorlista">Consultar</a>
-                    <a class="dropdown-item" href="/servidor">Cadastrar</a>
+                    <a class="dropdown-item" href="/servidorCadastro">Cadastrar</a>
                 </div>
             </li>
 
@@ -172,65 +172,60 @@
                 <label for="dataAdmissao">Data de Admissão:</label>
                 <input type="date" id="dataAdmissao" name="dataAdmissao" class="form-control"/>
             </div>
-        </div>
 
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="simboloSelect">Escolha um Símbolo:</label>
+                    <select id="simboloSelect" name="simboloSelect" class="form-control">
+                        <option value="">Selecione um Símbolo</option>
+                        <th:block th:each="cargo : ${cargos}">
+                            <option th:value="${cargo.id}" th:text="${cargo.simbolo}"></option>
+                        </th:block>
+                    </select>
+                </div>
 
-        <div class="form-group col-md-2">
-            <label for="cargoSelect">Escolha um Símbolo:</label>
-            <select id="simboloSelect" name="cargoSelect" class="form-control">
-                <option value="">Selecione um Símbolo</option>
-                <th:block th:each="cargo : ${cargos}">
-                    <option th:value="${cargo.id}" th:text="${cargo.simbolo}"></option>
-                </th:block>
-            </select>
-        </div>
+                <div class="form-group col-md-2" style="display: none;">
+                    <label for="simbolo">Símbolo:</label>
+                    <input type="text" id="simbolo" name="simbolo" class="form-control"/>
+                </div>
 
-        <div class="row" style="display: none;">
-            <div class="form-group col-md-2">
-                <label for="simbolo">Simbolo:</label>
-                <input type="text" id="simbolo" name="simbolo" class="form-control"/>
-            </div>
-        </div>
+                <div class="form-group col-md-4">
+                    <label for="cargoSelect">Escolha um Cargo:</label>
+                    <select id="cargoSelect" name="cargoSelect" class="form-control">
+                        <option value="">Selecione um Cargo</option>
+                        <th:block th:each="cargo : ${cargos}">
+                            <option th:value="${cargo.id}" th:text="${cargo.nome}"></option>
+                        </th:block>
+                    </select>
+                </div>
 
+                <div class="form-group col-md-2" style="display: none;">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" name="cargo" class="form-control"/>
+                </div>
 
+                <div class="form-group col-md-4">
+                    <label for="setorSelect">Escolha um Setor:</label>
+                    <select id="setorSelect" name="setorSelect" class="form-control">
+                        <option value="">Selecione um Setor</option>
+                        <th:block th:each="cargo : ${cargos}">
+                            <option th:value="${cargo.id}" th:text="${cargo.setor}"></option>
+                        </th:block>
+                    </select>
+                </div>
 
-
-        <div class="form-group col-md-2">
-            <label for="cargoSelect">Escolha um Cargo:</label>
-            <select id="cargoSelect" name="cargoSelect" class="form-control">
-                <option value="">Selecione um Cargo</option>
-                <th:block th:each="cargo : ${cargos}">
-                    <option th:value="${cargo.id}" th:text="${cargo.nome}"></option>
-                </th:block>
-            </select>
-        </div>
-
-        <div class="row" style="display: none;">
-            <div class="form-group col-md-2">
-                <label for="cargo">Cargo:</label>
-                <input type="text" id="cargo" name="cargo" class="form-control"/>
-            </div>
-        </div>
-
-
-
-
-<!--        <div class="form-group col-md-2">-->
-<!--                <label for="simbolo">Símbolo:</label>-->
-<!--                <input type="text" id="simbolo" name="simbolo" placeholder="Insira o símbolo do servidor" class="form-control"/>-->
-<!--            </div>-->
-
-            <div class="form-group col-md-2">
-                <label for="funcao">Função:</label>
-                <input type="text" id="funcao" name="funcao" placeholder="Insira a função do servidor" class="form-control"/>
+                <div class="form-group col-md-4" style="display: none;">
+                    <label for="setor">Setor:</label>
+                    <input type="text" id="setor" name="setor" class="form-control"/>
+                </div>
             </div>
 
-            <div class="form-group col-md-4">
-                <label for="setor">Setor:</label>
-                <input type="text" id="setor" name="setor" placeholder="Insira o setor do servidor" class="form-control"/>
+            <div class="form-group col-md-3">
+                <label>&nbsp;</label> <!-- Espaçador para alinhar com o combobox acima -->
+                <a href="/cargos" class="btn btn-primary form-control">Cadastro/Cargo/Símbolo/Setor</a>
             </div>
 
-<form>
+            <form>
             <div class="form-group col-md-4">
             <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
             <!-- Alterado o tipo para "reset" para limpar os campos -->
