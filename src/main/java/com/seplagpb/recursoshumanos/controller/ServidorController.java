@@ -1,5 +1,8 @@
 package com.seplagpb.recursoshumanos.controller;
+
+import com.seplagpb.recursoshumanos.model.Cargo;
 import com.seplagpb.recursoshumanos.model.Servidor;
+import com.seplagpb.recursoshumanos.repository.CargoRepository;
 import com.seplagpb.recursoshumanos.repository.ServidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,9 @@ public class ServidorController {
 
     @Autowired
     private ServidorRepository servidorRepository;
+
+    @Autowired
+    private CargoRepository cargoRepository;
 
 
     @PostMapping
@@ -70,6 +76,7 @@ public class ServidorController {
 
     }
 
+
     @GetMapping("/elegiveis-ferias")
     public String listarElegiveisParaFerias(Model model) {
         List<Servidor> todosServidores = servidorRepository.findAll();
@@ -90,7 +97,6 @@ public class ServidorController {
         model.addAttribute("servidoresElegiveis", elegiveisParaFerias);
         return "elegiveis-ferias";
     }
-
 
 
 }

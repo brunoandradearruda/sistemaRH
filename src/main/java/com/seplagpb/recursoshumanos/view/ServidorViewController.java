@@ -27,10 +27,13 @@ public class ServidorViewController {
 
     }
 
+
+
     @GetMapping("/elegiveis-ferias")
     public String listarElegiveisParaFerias(Model model) {
         List<Servidor> todosServidores = servidorRepository.findAll();
         List<Servidor> elegiveisParaFerias = new ArrayList<>();
+//        LocalDate hoje = LocalDate.of(2024, 01, 19);
         LocalDate hoje = LocalDate.now();
 
         for (Servidor servidor : todosServidores) {

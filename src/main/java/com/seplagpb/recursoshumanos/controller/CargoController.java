@@ -37,7 +37,6 @@ public class CargoController {
 
 
 
-
     @GetMapping("/editar/{id}")
     public String editarCargo(@PathVariable Long id, Model model) {
         Cargo cargo = cargoRepository.findById(id).orElse(new Cargo());

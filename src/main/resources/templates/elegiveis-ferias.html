@@ -7,7 +7,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-center" id="navbarNav">
@@ -20,7 +21,8 @@
                 <a class="nav-link" href="/servidor/feriaspendentes">Férias</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
                     Setor
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -30,7 +32,8 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Servidores
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,7 +43,8 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
                     Cargos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -53,11 +57,15 @@
     </div>
 </nav>
 <div class="container mt-5">
-    <h1>Servidores Elegíveis para Férias</h1>
+    <h1>Servidores em Férias</h1>
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>Matrícula</th>
             <th>Nome</th>
+            <th>Setor</th>
+            <th>Data Saída</th>
+            <th>Data Retorno</th>
             <th>Data de Admissão</th>
             <!-- Adicione mais colunas conforme necessário -->
         </tr>
@@ -65,7 +73,9 @@
         <tbody>
         <!-- Iterar sobre a lista de servidores elegíveis para férias -->
         <tr th:each="servidor : ${servidoresElegiveis}">
+            <td th:text="${servidor.matricula}">Nome do Servidor</td>
             <td th:text="${servidor.nome}">Nome do Servidor</td>
+            <td th:text="${servidor.setor}">Data de Admissão</td>
             <td th:text="${servidor.dataAdmissao}">Data de Admissão</td>
             <!-- Adicione mais campos conforme necessário -->
         </tr>
