@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Férias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Cadastrar Férias</h2>
+    <form th:action="@{/servidor/cadastrarFerias}" method="post">
+        <div class="form-group">
+            <label for="servidorId">Selecione o Servidor:</label>
+            <select class="form-control" id="servidorId" name="servidorId" required>
+                <option value="">-- Selecione o Servidor --</option>
+                <option th:each="servidor : ${servidores}" th:value="${servidor.id}" th:text="${servidor.nome}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inicioFerias">Início das Férias:</label>
+            <input type="date" class="form-control" id="inicioFerias" name="inicioFerias" required>
+        </div>
+        <div class="form-group">
+            <label for="fimFerias">Fim das Férias:</label>
+            <input type="date" class="form-control" id="fimFerias" name="fimFerias" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

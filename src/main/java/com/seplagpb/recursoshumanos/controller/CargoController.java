@@ -36,7 +36,6 @@ public class CargoController {
     }
 
 
-
     @GetMapping("/editar/{id}")
     public String editarCargo(@PathVariable Long id, Model model) {
         Cargo cargo = cargoRepository.findById(id).orElse(new Cargo());
@@ -76,7 +75,6 @@ public class CargoController {
             // Lide com a situação em que o cargo não foi encontrado
             return "redirect:/cargos";
         }
-
 
     }
 

@@ -1,4 +1,5 @@
 package com.seplagpb.recursoshumanos.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,18 +22,22 @@ public class Cargo {
     private String setor;
 
     public String getSimbolo() {
+
         return simbolo;
     }
 
     public void setSimbolo(String simbolo) {
+
         this.simbolo = simbolo;
     }
 
     public String getSetor() {
+
         return setor;
     }
 
     public void setSetor(String setor) {
+
         this.setor = setor;
     }
 

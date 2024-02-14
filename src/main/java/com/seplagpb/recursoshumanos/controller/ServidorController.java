@@ -1,14 +1,13 @@
 package com.seplagpb.recursoshumanos.controller;
-
-import com.seplagpb.recursoshumanos.model.Cargo;
+//import com.seplagpb.recursoshumanos.model.Ferias;
 import com.seplagpb.recursoshumanos.model.Servidor;
 import com.seplagpb.recursoshumanos.repository.CargoRepository;
+//import com.seplagpb.recursoshumanos.repository.FeriasRepository;
 import com.seplagpb.recursoshumanos.repository.ServidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -17,6 +16,9 @@ import java.util.*;
 @Controller
 @RequestMapping("/servidor")
 public class ServidorController {
+
+//    @Autowired
+//    private FeriasRepository feriasRepository;
 
     @Autowired
     private ServidorRepository servidorRepository;
@@ -98,13 +100,11 @@ public class ServidorController {
         return "elegiveis-ferias";
     }
 
-
-//    @GetMapping("/servidorCadastro")
-//    public String prepararFormularioServidor(Model model) {
-//        List<Cargo> cargos = cargoRepository.findAll();
-//        model.addAttribute("cargos", cargos); // Lista para o combobox
-//        // Aqui você pode adicionar outras informações necessárias para a página
-//        return "servidor"; // Nome da view que contém o formulário de servidor
+//    @GetMapping("/cadastrarFerias")
+//    public String cadastrarFerias(Model model) {
+//        List<Servidor> servidores = servidorRepository.findAll();
+//        model.addAttribute("servidores", servidores);
+//        return "cadastrarFerias";
 //    }
 
 
